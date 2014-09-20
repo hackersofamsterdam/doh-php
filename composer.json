@@ -4,7 +4,12 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "rcrowe/twigbridge": "0.6.*",
+        "guzzle/guzzle": "3.9.*@dev",
+        "league/fractal": "0.9.*@dev",
+        "league/oauth2-client": "0.3.*@dev",
+		"barryvdh/laravel-ide-helper": "1.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -1,0 +1,19 @@
+<a href="{{ route('products.update') }}">Update Products</a>
+
+<div>
+    {% for product in products %}
+        <form method="post" action="{{ route('product.update', {'id': product.id}) }}">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="{{ product.image }}?w=160"/>
+                </div>
+                <div class="col-lg-4">
+                    <input name="data_id" value=""/>
+                </div>
+                <div class="col-lg-4">
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </form>
+    {% endfor %}
+</div>
