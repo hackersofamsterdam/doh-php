@@ -9,9 +9,15 @@ return [
         'headers'      => [
             'Authorization' => 'Bearer {token}'
         ],
-        'mediaUri' => 'https://public-api.wordpress.com/rest/v1/sites/{blog_id}/media'
+        'mediaUri'     => 'https://public-api.wordpress.com/rest/v1/sites/{blog_id}/media'
     ],
-    'bol' => [
+    'bol'       => [
         'apikey' => 'E9D7DA0A32024A7AA6D618F452047479'
+    ],
+    'tumblr'    => [
+        'class'        => 'Tumblr',
+        'clientId'     => 'niEgnSf2pMSHBMv8LLh4h7Bm8nIcd6DcFXdLCIDIqpeMxRj9pY',
+        'clientSecret' => 'GvIYzIjuMWWH5RZSOY7BkgAmBsJtxGUFhFEKrdzGBwkDEjHssG',
+        'redirectUri'  => null
     ]
 ];

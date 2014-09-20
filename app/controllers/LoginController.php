@@ -2,6 +2,17 @@
 
 class LoginController extends Controller
 {
+    protected $tumblr;
+
+    public function __construct()
+    {
+        $this->tumblr = new League\OAuth1\Client\Server\Tumblr([
+            'identifier'   => 'niEgnSf2pMSHBMv8LLh4h7Bm8nIcd6DcFXdLCIDIqpeMxRj9pY',
+            'secret'       => 'GvIYzIjuMWWH5RZSOY7BkgAmBsJtxGUFhFEKrdzGBwkDEjHssG',
+            'callback_uri' => "http://iwant.nl/login/return/tumblr"
+        ]);
+    }
+
     /**
      * Show login providers
      *
@@ -20,9 +31,11 @@ class LoginController extends Controller
      */
     public function authorizeAction($providerName)
     {
-        $provider = $this->getProvider($providerName);
+        $temporaryCredentials = $this->tumblr->getTemporaryCredentials();
 
-        return Redirect::to($provider->getAuthorizationUrl());
+        Session::all('temporary_credentials', serialize($temporaryCredentials));
+
+        $this->tumblr->authorize($temporaryCredentials);
     }
 
     /**
@@ -33,23 +46,15 @@ class LoginController extends Controller
      */
     public function returnAction($providerName)
     {
-        $config   = $this->getProviderConfig($providerName);
-        $provider = $this->getProvider($providerName, $config);
+        $temporaryCredentials = unserialize(Session::get('temporary_credentials'));
 
-        $token = $provider->getAccessToken('authorization_code', [
-            'code' => Input::get('code')
-        ]);
+        dd(Session::get('temporary_credentials'));
 
-        $provider->setHeaders($config['headers'], $token);
+        $tokenCredentials = $this->tumblr->getTokenCredentials($temporaryCredentials, Input::get('oauth_token'), Input::get('oauth_verifier'));
 
-        $userDetails             = $provider->getUserDetails($token);
-        $userDetails['provider'] = $providerName;
+        $user = $this->tumblr->getUserDetails($tokenCredentials);
 
-        if (!$user = User::where('provider', '=', $providerName)->where('blog_user_id', '=', $userDetails['blog_user_id'])->first()) {
-            $user = User::create($userDetails);
-        }
-
-        Auth::login($user);
+        dd($user);
 
         return Redirect::route('dashboard');
     }

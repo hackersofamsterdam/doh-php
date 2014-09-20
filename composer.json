@@ -9,7 +9,9 @@
         "guzzle/guzzle": "3.9.*@dev",
         "league/fractal": "0.9.*@dev",
         "league/oauth2-client": "0.3.*@dev",
-		"barryvdh/laravel-ide-helper": "1.*"
+		"barryvdh/laravel-ide-helper": "1.*",
+        "league/oauth1-client": "~1.0",
+		"barryvdh/laravel-cors": "0.2.x"
 	},
 	"autoload": {
 		"classmap": [

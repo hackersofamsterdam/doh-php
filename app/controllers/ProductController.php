@@ -34,7 +34,6 @@ class ProductController extends Controller
 
                 $product->image_id = $image['id'];
                 $product->image    = $image['link'];
-                $product->title    = $image['title'];
 
                 $user->products()->save($product);
 
@@ -51,14 +50,21 @@ class ProductController extends Controller
 
         $result = (new $provider)->product($productId);
 
+        $fractal     = new \League\Fractal\Manager;
+        $class       = ucfirst($provider) . 'Transformer';
+        $transformer = new $class;
+        $resource    = new \League\Fractal\Resource\Item($result, $transformer);
+
+        $data = $fractal->createData($resource)->toArray()['data'];
+
         $product = Product::find($id);
 
-        $product->product_id = $productId;
-        $product->title = $result['title'];
-        $product->description = $result['description'];
-        $product->provider = $provider;
-        $product->price = $result['price'];
-        $product->target = $result['target'];
+        $product->product_id  = $productId;
+        $product->title       = $data['title'];
+        $product->description = $data['description'];
+        $product->provider    = $provider;
+        $product->price       = $data['price'];
+        $product->target      = $data['target'];
 
         $product->save();
 

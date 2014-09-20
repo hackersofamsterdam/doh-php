@@ -8,7 +8,7 @@
                     <img src="{{ product.image }}?w=160"/>
                 </div>
                 <div class="col-lg-4">
-                    <input name="data_id" value=""/>
+                    <input name="token" value="{{ product.title|default() }}"/>
                 </div>
                 <div class="col-lg-4">
                     <input type="submit" value="Save" />

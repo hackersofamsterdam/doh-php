@@ -4,8 +4,95 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c890f9c8f0f8fc4fb93ff45f58e49c7",
+    "hash": "1b6a8a4206c858eec8c1758c5058f90e",
     "packages": [
+        {
+            "name": "asm89/stack-cors",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/stack-cors.git",
+                "reference": "2d77e77251a434e4527315313a672f5801b29fa2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/2d77e77251a434e4527315313a672f5801b29fa2",
+                "reference": "2d77e77251a434e4527315313a672f5801b29fa2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Asm89\\Stack": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                }
+            ],
+            "description": "Cross-origin resource sharing library and stack middleware",
+            "homepage": "https://github.com/asm89/stack-cors",
+            "keywords": [
+                "cors",
+                "stack"
+            ],
+            "time": "2014-07-28 07:22:35"
+        },
+        {
+            "name": "barryvdh/laravel-cors",
+            "version": "v0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-cors.git",
+                "reference": "2da8858a8b8792f4dabd337bd59252a88914699d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/2da8858a8b8792f4dabd337bd59252a88914699d",
+                "reference": "2da8858a8b8792f4dabd337bd59252a88914699d",
+                "shasum": ""
+            },
+            "require": {
+                "asm89/stack-cors": "0.2.x",
+                "illuminate/support": "~4.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Cors\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Adds CORS (Cross-Origin Resource Sharing) headers support in your Laravel application",
+            "keywords": [
+                "api",
+                "cors",
+                "crossdomain",
+                "laravel"
+            ],
+            "time": "2014-06-11 07:05:53"
+        },
         {
             "name": "barryvdh/laravel-ide-helper",
             "version": "v1.11.3",
@@ -560,6 +647,65 @@
                 "rest"
             ],
             "time": "2014-09-16 21:44:08"
+        },
+        {
+            "name": "league/oauth1-client",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth1-client.git",
+                "reference": "f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8",
+                "reference": "f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "3.*",
+                "php": ">=5.3.0",
+                "symfony/http-foundation": "~2"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.7.2",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on"
+            ],
+            "time": "2014-01-31 23:08:45"
         },
         {
             "name": "league/oauth2-client",
