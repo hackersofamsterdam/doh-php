@@ -12,7 +12,8 @@ class BolTransformer extends \League\Fractal\TransformerAbstract
             'id'       => $bolData['id'],
             'key'      => 'bol-' . $bolData['id'],
             'title'    => $bolData['title'],
-            'provider' => 'bol'
+            'provider' => 'bol',
+            'description' => $bolData['longDescription'],
         ];
     }
 }
