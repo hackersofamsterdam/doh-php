@@ -47,7 +47,18 @@ class ProductController extends Controller
 
     public function updateProductAction($id)
     {
+        list($provider, $productId) = explode('-', Input::get('token'));
+
+        $result = (new $provider)->product($productId);
+
         $product = Product::find($id);
+
+        $product->product_id = $productId;
+        $product->title = $result['title'];
+        $product->description = $result['description'];
+        $product->provider = $provider;
+        $product->price = $result['price'];
+        $product->target = $result['target'];
 
         $product->save();
 
